@@ -26,4 +26,4 @@ if ',' in targets:
 		tara(ip_adres.strip(' '), ports)
 
 else:
-	tara(targets, p
+	tara(targets, ports)
