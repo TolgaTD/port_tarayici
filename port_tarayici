@@ -1,0 +1,29 @@
+import socket
+import termcolor
+
+def tara(target, ports):
+		print('\n' + 'Tarama su IP icin baslatiliyor : '+ str(target))
+		for port in range(1,ports):
+			port_tarayici(target,port)
+
+
+def port_tarayici(ipadresi, port):
+	try:
+
+		sock = socket.socket()
+		sock.connect((ipadresi, port))
+		print("[+] Port Acik " +str(port))
+	except:	
+		pass
+
+
+targets = input("[*] Tarama icin hedefleri giriniz(Lutfen hedefleri virgül ile ayiriniz.) : ")
+ports = int(input("[*] Kaç tane port taramak istiyorsunuz ? : "))
+
+if ',' in targets:
+	print(termcolor.colored(("[*] Çoklu Hedef Taranıyor"),'green'))
+	for ip_adres in targets.split(','):
+		tara(ip_adres.strip(' '), ports)
+
+else:
+	tara(targets, p
